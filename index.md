@@ -1,6 +1,3 @@
-# Pathway and Network Analysis
-
-
 [Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01]
 
 The material is modified from this [workshop](https://bioinformaticsdotca.github.io/Pathways_2019).   
