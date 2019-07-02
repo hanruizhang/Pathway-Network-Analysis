@@ -1,3 +1,10 @@
+---
+title: "Pathway and Network Analysis Workflow"
+output:
+    html_document:
+        toc: false
+---
+
 [Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01]
 
 The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on [pathway and network analysis](https://bioinformaticsdotca.github.io/Pathways_2019).   
