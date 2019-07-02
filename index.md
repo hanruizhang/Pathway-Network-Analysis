@@ -83,7 +83,7 @@ write.table(df3, file=".txt", quote = FALSE, sep = "\t", row.names = FALSE, col.
 ## Additional information
 
 
-* Use BioStar to post questions and search answers 
+* Use [Biostars](https://www.biostars.org/) to post questions and search answers 
 
 
 
