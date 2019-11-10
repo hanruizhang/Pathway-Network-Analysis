@@ -30,8 +30,8 @@ Reimand J, Isserlin R, Voisin V, Kucera M, Tannus-Lopes C, Rostamianfar A, Wadi 
 ## 3. Over-representation analysis and enrichment analysis
 ### 3.1 [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) for over-representation analysis: Using two lists of genes as the inputs
 
-* Foreground genes should be the differentially expressed genes using different FC and FDR cutoff, e.g. Log2(FC)>1.0 & FDR<0.01. You may download the practice data in .txt file [here](/data/M0-HMDM_M1-HMDM_Increase_FDR0.01_FC2.0.txt)
-* Background genes can be the "expressed" genes. You may download the practice data in .txt file [here](/data/M0-HMDM_Background.txt)
+* Foreground genes should be the differentially expressed genes using different FC and FDR cutoff, e.g. Log2(FC)>1.0 & FDR<0.01. You may download the practice data in .txt file [here](/data/M0-HMDM_M1-HMDM_Increase_FDR0.01_FC2.0.txt).
+* Background genes can be the "expressed" genes. You may download the practice data in .txt file [here](/data/M0-HMDM_Background.txt).
 * Advanced option: Use FDR and adjust threshold as needed.
 * Notes:
 	* Data sources: Start with GO_Biological Processes and check "no electronic GO annotations". Can also include KEGG, Reactiome etc. 
