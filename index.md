@@ -60,8 +60,9 @@ df$rank = -log10(df$pvalue) * sign(df$log2FoldChange)
 df1 = df[order(df$rank, decreasing = TRUE),]
 ## Remove duplicate and subset GeneName and rank column
 df1[which(duplicated(df1$SYMBOL)),]
-df2 = df1[,c(9,10)]
-df3 = (subset(df2, SYMBOL!="..." & SYMBOL!="..." & SYMBOL!="..."))
+## The "c(9,10)" is to subset the 9th and the 10th columns from your dataframe for the gene symbol and the rank.
+df2 = df1[,c(9,10)] 
+df3 = subset(df2, SYMBOL!="..." & SYMBOL!="..." & SYMBOL!="...")
 ## Write to a .rnk file
 write.table(df3, file=".txt", quote = FALSE, sep = "\t", row.names = FALSE, col.names = FALSE)
 
