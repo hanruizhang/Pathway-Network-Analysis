@@ -5,7 +5,7 @@ output:
         toc: false
 ---
 
-[Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2020-11/10].    
+[Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2020-11-10].    
 
 The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on [pathway and network analysis](https://bioinformaticsdotca.github.io/Pathways_2019).   
 
