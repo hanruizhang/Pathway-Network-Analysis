@@ -77,18 +77,21 @@ write.table(df3, file=".txt", quote = FALSE, sep = "\t", row.names = FALSE, col.
 * Click on "Success" to launch results.  
 
 ## 4. Network Visualization and Analysis with Cytoscape - Enrichment Map
+#### Network Visualization and Analysis with Cytoscape: Enrichment Map from g:Profiler results.
+https://bioinformaticsdotca.github.io/Pathways_2019_Module3_Lab-EM_GProfiler    
 
-* Add an expression table: The rationale for using the expression table is that when you use it you can see the more fine grain details of the sample data. Sometimes individual samples could have stronger signals than the others or it could be equal across the board.  It is just an additional feature that we have found people like to take advantage of. The gene names in the expression table and the rank file should match (they do not have to be in the same order just the identifiers need to match).
+#### Network Visualization and Analysis with Cytoscape: create an enrichment map from GSEA results.
+https://bioinformaticsdotca.github.io/Pathways_2019_Module3_Lab-EM_GSEA    
+
+**Notes:**
+* For GSEA results-based analysis, adding an expression table is recommended: The rationale for using the expression table is that when you use it you can see the more fine grain details of the sample data. Sometimes individual samples could have stronger signals than the others or it could be equal across the board.  It is just an additional feature that we have found people like to take advantage of. The gene names in the expression table and the rank file should match (they do not have to be in the same order just the identifiers need to match).
 * Edge cutoff: we would like to keep it low unless the data look like a hairball.
 * Enrichment map - Style - Chart data: Color by FDR or by datasets
 * Circle represents number of genes in each enriched pathway; edge represents the overlap of genes between pathway; color of the circle can be adjusted to represent Q value.
 
-#### * EnrichmentMap (GSEA and g:Profiler) step by step protocol: [https://www.biorxiv.org/content/early/2017/12/12/232835](https://www.biorxiv.org/content/early/2017/12/12/232835) and [https://github.com/BaderLab/Cytoscape_workflows](https://github.com/BaderLab/Cytoscape_workflows)
 
-
-## Additional information
-
-
+## 5. Additional information
+* [https://github.com/BaderLab/Cytoscape_workflows](https://github.com/BaderLab/Cytoscape_workflows)
 * Use [Biostars](https://www.biostars.org/) to post questions and search answers 
 
 
