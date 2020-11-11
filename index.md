@@ -85,6 +85,7 @@ https://bioinformaticsdotca.github.io/Pathways_2019_Module3_Lab-EM_GProfiler
 https://bioinformaticsdotca.github.io/Pathways_2019_Module3_Lab-EM_GSEA    
 
 **Notes:**
+* Enrichment map documentation: [https://enrichmentmap.readthedocs.io/en/latest/](https://enrichmentmap.readthedocs.io/en/latest/)
 * For GSEA results-based analysis, adding an expression table is recommended: The rationale for using the expression table is that when you use it you can see the more fine grain details of the sample data. Sometimes individual samples could have stronger signals than the others or it could be equal across the board.  It is just an additional feature that we have found people like to take advantage of. The gene names in the expression table and the rank file should match (they do not have to be in the same order just the identifiers need to match).
 * The parameter for the enrichment map should be set up the way that the map is informative and representative (not like a hairball or miss any important information): The FDR cutoff for the number of nodes can be between 0.001 to 0.01; the edge connectivity should be between sparse to the middle. 
 * Once the map is generated, we can further filter by FDR or Edge cutoff, which we would like to keep it low unless the data look like a hairball.
