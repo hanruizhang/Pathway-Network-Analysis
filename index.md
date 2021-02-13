@@ -92,7 +92,7 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 
        
 * A pathway definition file (.gmt): 
-	* Can be downloaded from [http://baderlab.org/GeneSets](downloaded from http://baderlab.org/GeneSets) and use the "current release". Recommended file: **Human_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt**
+	* Can be downloaded from [http://baderlab.org/GeneSets](http://baderlab.org/GeneSets) and use the "current release". Recommended file: **Human_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt**
 	* gmt file for mouse databases can also be downloaded from gprofiler, but GSEA results using the mouse databases only has GO ID but not description. 
 	* Can also just use the gmt files already available in the GSEA destop app, but can only be for human data (human gene symbol). One can use g:orth to convert mouse gene symbol in the rank file to human orthologs and provide the rnk file for GSEA analysis.
 * Number of permutation: always use 1000.
