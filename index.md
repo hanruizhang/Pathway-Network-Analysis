@@ -92,7 +92,7 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 
        
 * A pathway definition file (.gmt): 
-	* Can be downloaded from [http://baderlab.org/GeneSets](http://baderlab.org/GeneSets) and use the "current release". Recommended file: **Human_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt** or **Mouse_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt**; there are files for other species.
+	* Can be downloaded from [http://baderlab.org/GeneSets](http://baderlab.org/GeneSets) and use the "current release". Recommended file: **Human_GOBP_All_Pathways_no_GO_iea_{Date}_{ID}.gmt** or **Mouse_GOBP_All_Pathways_no_GO_iea_{Date}_{ID}.gmt**. There are files for rats as well.
 	* gmt files can also be downloaded from gprofiler, but somehow the plots from GSEA analysis only show GO ID but not description, so not very convenient. 
 	* Can also just use the gmt files in the app from [Molecular Signatures Database (MSigDB)](http://www.gsea-msigdb.org/gsea/msigdb/collections.jsp), a collection of annotated gene sets for use with GSEA software. This can only be for human data (human gene symbol). One can use g:orth to convert mouse gene symbol in the rank file to human orthologs and provide the rnk file for GSEA analysis.
 * Number of permutation: always use 1000.
@@ -101,6 +101,9 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 * Enrichment statistics: The default is "weighted". Can also **set Enrichment Statistics to p2 if you want to add more weight on the most top up-regulated and top down-regulated.**. Can try P1.5 to see the difference in terms of enrichment plot.
 * Click "run" to start the analysis.
 * Click on "Success" to launch results.  
+* **Additional analysis**: 
+	* Leading edge analysis: select positive or negative NES and set FDR threshold, e.g. 0.01.
+	* Enrichment map visualization directly from through GSEA app.
 
 ## 4. Network Visualization and Analysis with Cytoscape - Enrichment Map
 #### Network Visualization and Analysis with Cytoscape: Enrichment Map from g:Profiler results.
