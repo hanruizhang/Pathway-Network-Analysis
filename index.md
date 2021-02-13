@@ -7,7 +7,7 @@ output:
 
 [Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2021-02-13].    
 
-The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on pathway and network analysis [2019](https://bioinformaticsdotca.github.io/Pathways_2019) and [2020](https://bioinformaticsdotca.github.io/Pathways_2020). 
+The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on pathway and network analysis [2020](https://bioinformaticsdotca.github.io/Pathways_2020). 
 
 ## Summary of the Workflow
 1. **Process Data**: Derive a list of differentially expressed genes from RNA sequencing data. ([our workflow](https://hanruizhang.github.io/RNAseq-analysis-workflow/))
