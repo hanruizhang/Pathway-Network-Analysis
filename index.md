@@ -7,7 +7,7 @@ output:
 
 [Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2021-02-13].    
 
-The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on [pathway and network analysis](https://bioinformaticsdotca.github.io/Pathways_2019).   
+The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on pathway and network analysis [2019](https://bioinformaticsdotca.github.io/Pathways_2019) and [2020](https://bioinformaticsdotca.github.io/Pathways_2020). 
 
 ## Summary of the Workflow
 1. **Process Data**: Derive a list of differentially expressed genes from RNA sequencing data. ([our workflow](https://hanruizhang.github.io/RNAseq-analysis-workflow/))
@@ -50,8 +50,8 @@ The protocol uses publicly available software packages (GSEA v.3.0 or higher, g:
 	* Adjust term size to exclude general terms: the default is 10,000 and it is generally good to change to 1,000. If there are still a lot of results can reduce further. This is because large pathways are of limited interpretative value, whereas numerous small pathways decrease the statistical power because of excessive multiple testing.
 		* **For enrichment map analysis, may try min = 3 and max = 250 to limit the results for more informative map.** 
 		* With the previous version of g:profiler you were able to specify the min and max geneset size.  We used to recommend min of 3 and max of 300.  Unfortunately with the latest release of g:profiler you are not able to filter prior to searching by these thresholds.  
-		* Keep a note for this filtering strategy, e.g. name the results folder including the min and max number.
-**Save the results**: The query URL results are not permenant. The GEM is the generic enrichment file and it is formatted in a way that Enrichment map Cytoscape app can recognize.  It is missing some of the info that is found in the csv but you can use it directly with the Cytoscape app.
+		* Keep a note for this filtering strategy, e.g. name the results folder including the min and max number.      
+* **Save the results**: The query URL results are not permenant. The GEM is the generic enrichment file and it is formatted in a way that Enrichment map Cytoscape app can recognize.  It is missing some of the info that is found in the csv but you can use it directly with the Cytoscape app.
    
 * [g:Convert](https://biit.cs.ut.ee/gprofiler/convert): 
 	* Target name space: 
@@ -61,6 +61,7 @@ The protocol uses publicly available software packages (GSEA v.3.0 or higher, g:
 * [g:SNPense](https://biit.cs.ut.ee/gprofiler/snpense): Map human SNPs to genes
 
 ### 3.2 [GSEA](http://software.broadinstitute.org/gsea/index.jsp): Use all genes with fold change and p-value (recommended)
+* Download the GSEA desktop app by clicking [here](http://software.broadinstitute.org/gsea/index.jsp) and then "Download". Login with your email and choose the Mac vs Windows version appropriate.
 * GSEA analysis needs two files
 	* A rank file (.rnk): using the codes below (and modify as needed) to generate a txt file then add ".rnk" to the end of the file name
 
@@ -85,8 +86,7 @@ rnk = DEfinal[order(DEfinal$rank, decreasing = TRUE), 8:9]
 
 ### Write to a .rnk file
 write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.names = FALSE, col.names = FALSE)
-## Add a rank column using the following calculation, make sure to use p value, not padj.   
-df$rank = -log10(df$pvalue) * sign(df$log2FoldChange)
+
 
 ```
 
@@ -120,7 +120,11 @@ https://bioinformaticsdotca.github.io/Pathways_2019_Module3_Lab-EM_GSEA
 
 ## 5. Additional information
 * Other Bader lab Cytoscape workflows are available at [https://github.com/BaderLab/Cytoscape_workflows](https://github.com/BaderLab/Cytoscape_workflows)
-* Use [Biostars](https://www.biostars.org/) to post questions and search answers 
+* Use [Biostars](https://www.biostars.org/) to post questions and search answers
+* This workflow does not cover the contents below, which can be found through workshop link above.
+	* **Build the network** by [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
+	* **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
+	* **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 
 
 
