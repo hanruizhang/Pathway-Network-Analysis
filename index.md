@@ -92,9 +92,9 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 
        
 * A pathway definition file (.gmt): 
-	* Can be downloaded from [http://baderlab.org/GeneSets](http://baderlab.org/GeneSets) and use the "current release". Recommended file: **Human_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt**
-	* gmt file for mouse databases can also be downloaded from gprofiler, but GSEA results using the mouse databases only has GO ID but not description. 
-	* Can also just use the gmt files already available in the GSEA destop app, but can only be for human data (human gene symbol). One can use g:orth to convert mouse gene symbol in the rank file to human orthologs and provide the rnk file for GSEA analysis.
+	* Can be downloaded from [http://baderlab.org/GeneSets](http://baderlab.org/GeneSets) and use the "current release". Recommended file: **Human_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt** or **Mouse_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt**; there are files for other species.
+	* gmt files can also be downloaded from gprofiler, but somehow the plots from GSEA analysis only show GO ID but not description, so not very convenient. 
+	* Can also just use the gmt files in the app from [Molecular Signatures Database (MSigDB)](http://www.gsea-msigdb.org/gsea/msigdb/collections.jsp), a collection of annotated gene sets for use with GSEA software. This can only be for human data (human gene symbol). One can use g:orth to convert mouse gene symbol in the rank file to human orthologs and provide the rnk file for GSEA analysis.
 * Number of permutation: always use 1000.
 * Name the analysis with the gene sets used, and the min and max cutoff.
 * Min = 15, max = 200 to include only smaller gene sets.
@@ -117,8 +117,18 @@ https://bioinformaticsdotca.github.io/Pathways_2019_Module3_Lab-EM_GSEA
 * Enrichment map - Style - Chart data: Color by FDR or by datasets
 * Circle represents number of genes in each enriched pathway; edge represents the overlap of genes between pathway; color of the circle can be adjusted to represent Q value.
 
+## 5. Other overrepresentation and/or enrichment analysis tools
+* Defined genes list for overrepresentation analysis:
+	* gProfiler: web-based, updated dataset, can test datasets combined, can use Cytoscape for visualization
+	* Panther: web-based, updated dataset, can test datasets individually (not combined), cannot use Cytoscape for visualization
+	* Cluego: app, updated dataset, can test datasets together, has own Cytoscape app
+	* BiNGO: app, dataset may not be the most up-to-date, can test datasets togehter, can use Cytoscape for visualization
+* Ranked list:
+	* gProfiler: Modified KS test, correction for multiple hypothesis testing, can use Cytoscape for visualization
+	* Panther: Wilcoxon Rank Sum test, correction for multiple hypothesis testing, cannot use Cytoscape for visualization.
+* Other [GO-endorsed enrichment analysis tools](http://geneontology.org/docs/go-enrichment-analysis/) include Panther, BiNGO, GOrilla etc. 
 
-## 5. Additional information
+## 6. Additional information
 * Other Bader lab Cytoscape workflows are available at [https://github.com/BaderLab/Cytoscape_workflows](https://github.com/BaderLab/Cytoscape_workflows)
 * Use [Biostars](https://www.biostars.org/) to post questions and search answers
 * This workflow does not cover the contents below, which can be found through workshop link above.
