@@ -5,7 +5,7 @@ output:
         toc: false
 ---
 
-[Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2020-11-10].    
+[Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2021-02-13].    
 
 The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on [pathway and network analysis](https://bioinformaticsdotca.github.io/Pathways_2019).   
 
@@ -31,17 +31,28 @@ The protocol uses publicly available software packages (GSEA v.3.0 or higher, g:
 ## 3. Over-representation analysis and enrichment analysis
 ### 3.1 [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) for over-representation analysis: Using two lists of genes as the inputs
 
-* Select organism that matches input query gene list.
-* Foreground genes should be the differentially expressed genes using different FC and FDR cutoff, e.g. Log2(FC)>1.0 & FDR<0.01. You may download the practice data in .txt file [here](/data/M0-HMDM_M1-HMDM_Increase_FDR0.01_FC2.0.txt).
-* Background genes can be the "expressed" genes. You may download the practice data in .txt file [here](/data/M0-HMDM_Background.txt).
-* Advanced option: Select "only annotated genes"; Use FDR and adjust threshold as needed.
-* Notes:
-	* Data sources: Start with GO_Biological Processes and check "no electronic GO annotations". Can also include KEGG, Reactiome etc. 
-	* Adjust term size to exclude general terms: the default is 10,000 and it is generally good to change to 1,000. If there are still a lot of results can reduce further. **For enrichment map analysis, may try min = 3 and max = 250 to limit the results for more informative map.** 
-	* If there are ambiguous IDs, choose the one with the most GO terms, or the first one on the list if all are the same.  
-	* The GEM is the generic enrichment file and it is formatted in a way that Enrichment map Cytoscape app can recognize.  It is missing some of the info that is found in the csv but you can use it directly with the Cytoscape app.   
-	* The query URL results are not permenant   
-	* When you have the large term sizes you will get more general terms coming up. With the previous version of g:profiler you were able to specify the min and max geneset size.  We used to recommend min of 3 and max of 300.  Unfortunately with the latest release of g:profiler you are not able to filter prior to searching by these thresholds.      
+* **Select organism that matches input query gene list.**
+* **Foreground genes**: Should be the differentially expressed genes using different FC and FDR cutoff, e.g. Log2(FC)>1.0 & FDR<0.01. You may download the practice data in .txt file [here](/data/M0-HMDM_M1-HMDM_Increase_FDR0.01_FC2.0.txt). 
+	* The list include DE genes upregualted in human monocyte-derived macrophages (HMDM) stimualted with LPS+TFNg, i.e. M(LPS+IFNgamma), vs HMDM without stimulation (M0). The results are obtained by running the RNA-seq workflow also available on the lab web page [here](https://hanruizhang.github.io/RNAseq-analysis-workflow/).
+	* It is recommended that for a list that can be ranked, e.g. a list of DE genes, the genes should be ranked and the box of **"Ordered query"** should be checked.
+	* The ranking can be based on the same methods for GSEA analysis as described below. 
+* **Background genes**: Can select the "Only annotated genes" upon clicking "Advanced Options". Or can use the "expressed" genes and you may download the practice data in .txt file [here](/data/M0-HMDM_Background.txt).
+	* The "expressed" genes can be defined by customized criteria. For example:
+		* Require that the sum of normalized counts for all samples is 10 or higher as **"expressed"** (this is considered the minimal pre-filtering applied before DESeq2 analysis to keep only rows that have at least 10 reads total).
+		`rowSums(counts(dds)) >= 10`
+		* Additional filtering can be used, e.g. for at least 3 samples have a count of 10 or higher.
+		`rowSums(counts(dds) >= 10) >= 3`
+		* For RNA-seq that is considered to be genome-wide coverage, it is usually just fine to use the "Only annotated genes" as the background, but it is better to run the analysis in both ways and compare the results.
+* **Statistical threshold**: Click "Advanced option" and select FDR.
+* **Data source**: It is recommended to start with "GO: Biological Process" and check "no electronic GO annotations", and "Reactome" for the initial analysis. Then can repeat the analysis with other or all gene sets/pathways included.
+* **Run query**: If there are ambiguous IDs, choose the one with the most GO terms, or the first one on the list if all are the same. 
+* **Results interpretation**:
+	* Adjust term size to exclude general terms: the default is 10,000 and it is generally good to change to 1,000. If there are still a lot of results can reduce further. This is because large pathways are of limited interpretative value, whereas numerous small pathways decrease the statistical power because of excessive multiple testing.
+		* **For enrichment map analysis, may try min = 3 and max = 250 to limit the results for more informative map.** 
+		* With the previous version of g:profiler you were able to specify the min and max geneset size.  We used to recommend min of 3 and max of 300.  Unfortunately with the latest release of g:profiler you are not able to filter prior to searching by these thresholds.  
+		* Keep a note for this filtering strategy, e.g. name the results folder including the min and max number.
+**Save the results**: The query URL results are not permenant. The GEM is the generic enrichment file and it is formatted in a way that Enrichment map Cytoscape app can recognize.  It is missing some of the info that is found in the csv but you can use it directly with the Cytoscape app.
+   
 * [g:Convert](https://biit.cs.ut.ee/gprofiler/convert): 
 	* Target name space: 
 		* ENTREZGENE: Entrez gene symbol
@@ -55,26 +66,40 @@ The protocol uses publicly available software packages (GSEA v.3.0 or higher, g:
 
 ```
 # To prepare .rnk file
+## Read the DESeq2 output
+DE <- read.csv("../output/DESeq2.csv"), header = TRUE, sep = ",")
+
+## Filter to remove all the NAs 
+DEnoNA <- DE %>% filter(!is.na(SYMBOL) & !is.na(pvalue) & !is.na(padj))
+
+## Filter to remove duplicated SYMBOLS
+duplicate <- DEnoNA[which(duplicated(DEnoNA$SYMBOL)),]
+duplicate_SYMBOL <- duplicate$SYMBOL
+DEfinal <- DEnoNA[!grepl(paste(duplicate_SYMBOL, collapse = "|"), DEnoNA$SYMBOL),]
+
+## Prepare the rnk file and save to the output folder
+### Add a rank column using the following calculation, make sure to use p value, not padj.  
+DEfinal$rank = -log10(DEfinal$pvalue) * sign(DEfinal$log2FoldChange)
+### order by rank and subset SYMBOL and rank column
+rnk = DEfinal[order(DEfinal$rank, decreasing = TRUE), 8:9]
+
+### Write to a .rnk file
+write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.names = FALSE, col.names = FALSE)
 ## Add a rank column using the following calculation, make sure to use p value, not padj.   
 df$rank = -log10(df$pvalue) * sign(df$log2FoldChange)
-## Order the rank by descending
-df1 = df[order(df$rank, decreasing = TRUE),]
-## Remove duplicate and subset GeneName and rank column
-df1[which(duplicated(df1$SYMBOL)),]
-## The "c(9,10)" is to subset the 9th and the 10th columns from your dataframe for the gene symbol and the rank.
-df2 = df1[,c(9,10)] 
-df3 = subset(df2, SYMBOL!="..." & SYMBOL!="..." & SYMBOL!="...")
-## Write to a .rnk file
-write.table(df3, file=".txt", quote = FALSE, sep = "\t", row.names = FALSE, col.names = FALSE)
 
 ```
 
        
 * A pathway definition file (.gmt): 
-	* Can be downloaded from [http://baderlab.org/GeneSets](downloaded from http://baderlab.org/GeneSets).
-	* Recommended file: **Human_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt**
+	* Can be downloaded from [http://baderlab.org/GeneSets](downloaded from http://baderlab.org/GeneSets) and use the "current release". Recommended file: **Human_ GOBP_ All_ Pathways_ no_ GO_ iea_ {Date}_{ID}.gmt**
+	* gmt file for mouse databases can also be downloaded from gprofiler, but GSEA results using the mouse databases only has GO ID but not description. 
+	* Can also just use the gmt files already available in the GSEA destop app, but can only be for human data (human gene symbol). One can use g:orth to convert mouse gene symbol in the rank file to human orthologs and provide the rnk file for GSEA analysis.
 * Number of permutation: always use 1000.
-* Important tips: **set Enrichment Statistics to p2 if you want to add more weight on the most top up-regulated and top down-regulated.**. Can try P1.5 to see the difference in terms of enrichment plot.
+* Name the analysis with the gene sets used, and the min and max cutoff.
+* Min = 15, max = 200 to include only smaller gene sets.
+* Enrichment statistics: The default is "weighted". Can also **set Enrichment Statistics to p2 if you want to add more weight on the most top up-regulated and top down-regulated.**. Can try P1.5 to see the difference in terms of enrichment plot.
+* Click "run" to start the analysis.
 * Click on "Success" to launch results.  
 
 ## 4. Network Visualization and Analysis with Cytoscape - Enrichment Map
