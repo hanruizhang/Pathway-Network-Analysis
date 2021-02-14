@@ -102,7 +102,7 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 * Click "run" to start the analysis.
 * Click on "Success" to launch results.  
 * **Additional analysis**: 
-	* Leading edge analysis: select positive or negative NES and set FDR threshold, e.g. 0.01.
+	* Leading edge analysis: select positive or negative NES and set FDR threshold, e.g. 0.01. The results interpretation can be found through the [GSEA User Guideline](https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html).
 	* Enrichment map visualization directly from through GSEA app.
 
 ## 4. Network Visualization and Analysis with Cytoscape - Enrichment Map
