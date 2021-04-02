@@ -63,7 +63,8 @@ e.g. differentially expressed (DE) genes and all the expressed genes; top screen
 	*  The purpose is to guide future experiment and inform hypothesis, therefore the filtering strategy, ranking strategy and the number of genes to include may not matter as much.     
 	* For hypergeometric analysis, smaller gene sets and smaller input gene list may lead to only one or two genes in the list are in the pathway still showing statistical significance. This needs to be taken into consideration and and it is generally recommended to prioritize those enriched pathways/gene sets that have more genes from the foreground list.     
 	* It could be informative to visualize the genes in the enriched pathways because it is possible that those genes are all playing roles in a certain part of the large pathway.     
-	* Using ENSEMBL ID for query can be helpful because ENSEMBL IDs are unique.     
+	* Using ENSEMBL ID for query can be helpful because ENSEMBL IDs are unique. 
+	* For ranked list, it is generally recommended to perform GSEA.        
    
 * [g:Convert](https://biit.cs.ut.ee/gprofiler/convert): 
 	* Target name space: 
