@@ -26,7 +26,7 @@ The main purpose of pathway and network analysis is to understand what a list of
 
 
 ## 1. Laptop set-up instruction
-Install the latest version of GSEA ([Gene Set Enrichment Analysis](https://www.gsea-msigdb.org/gsea/index.jsp)) and [Cytoscape](https://cytoscape.org/)
+Follow the link to download and install the latest version of [GSEA](https://www.gsea-msigdb.org/gsea/index.jsp) (Gene Set Enrichment Analysis) and [Cytoscape](https://cytoscape.org/).      
 
 ## 2. Reading materials and references
 * [Bioinformatics.ca Pathway and Network Analysis workshop](https://baderlab.github.io/CBW_Pathways_2020/)
