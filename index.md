@@ -110,12 +110,15 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 	* Can be downloaded from [http://baderlab.org/GeneSets](http://baderlab.org/GeneSets) by clicking "http://download.baderlab.org/EM_Genesets/" and use the "current release". When the rnk file uses symbol, the gmt file in the "symbol/" folder should be used. Recommended file: **Human_GOBP_All_Pathways_no_GO_iea_{Date}_{ID}.gmt** or **Mouse_GOBP_All_Pathways_no_GO_iea_{Date}_{ID}.gmt**. There are files for rats as well. The recommended files contain only genesets from GO biological process excluding annotations that have evidence code IEA (inferred from electronic annotation), ND (no biological data available), and RCA (inferred from reviewed computational analysis) and all pathway resources. Notes: The "GO_All_Pathway" gmt files contain GOBC and GOMF and take a bit longer time for the analysis.
 	* gmt files can also be downloaded from gprofiler, but somehow the plots from GSEA analysis only show GO ID but not description, so not very convenient. 
 	* Can also just use the gmt files in the app from [Molecular Signatures Database (MSigDB)](http://www.gsea-msigdb.org/gsea/msigdb/collections.jsp), a collection of annotated gene sets for use with GSEA software. This can only be for human data (human gene symbol). One can use g:orth to convert mouse gene symbol in the rank file to human orthologs and provide the rnk file for GSEA analysis.
+* Collapse/Remap to gene symbols: choose "no collapse" unless relevant
 * Number of permutation: use 1000 as suggested in the Nat Prot paper or 2000 as suggested in the workshop materials.
 * Name the analysis with the gene sets used, and the min and max cutoff.
 * Min = 15, max = 200 to include only smaller gene sets.
 * Enrichment statistics: The default is "weighted". Can also **set Enrichment Statistics to p2 if you want to add more weight on the most top up-regulated and top down-regulated.**. Can try P1.5 to see the difference in terms of enrichment plot.
+* Analysis name: It is important to use informative name with how the analysis was done, e.g. **DESeq2filename_gmtfilename_min15max200_GseaPreranked**.
+* Choose the folder to save the results or just use default. 
 * Click "run" to start the analysis.
-* Click on "Success" to launch results.  
+* Click on "Success" to launch results. 
 * **Additional analysis**: 
 	* Leading edge analysis: select positive or negative NES and set FDR threshold, e.g. 0.01. The results interpretation can be found through the [GSEA User Guideline](https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html).
 	* Enrichment map visualization directly from through GSEA app.
