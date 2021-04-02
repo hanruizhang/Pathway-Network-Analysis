@@ -16,15 +16,17 @@ The main purpose of pathway and network analysis is to understand what a list of
 	- Top CRISPR screen hits
 	- Candidate genes from rare variants and/or common variant association studies
 	- And many more...
-3. **Identify Pathways**: Identify enriched pathways using **over-representation analysis** or **Gene Set Enrichment Analysis**.
-4. **Visualize**: Create an Enrichment Map displaying the landscape of pathways.
-5. **Build the network**: [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
-6. **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
-7. **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
+3. **Identify Pathways**: Identify enriched pathways using -
+	- **over-representation analysis** for two lists of foreground and background genes.
+	-  or **Gene Set Enrichment Analysis** for a ranked gene list
+5. **Visualize**: Create an Enrichment Map displaying the landscape of pathways.
+6. **Build the network**: [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
+7. **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
+8. **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 
 
 ## 1. Laptop set-up instruction
-Install the latest version of GSEA (Gene Set Enrichment Analysis) [Instruction](https://www.gsea-msigdb.org/gsea/index.jsp) and Cytoscape [Instructions](https://baderlab.github.io/CBW_Pathways_2020/welcome.html#pre-workshop)
+Install the latest version of GSEA ([Gene Set Enrichment Analysis](https://www.gsea-msigdb.org/gsea/index.jsp)) and [Cytoscape](https://cytoscape.org/)
 
 ## 2. Reading materials and references
 * [Bioinformatics.ca Pathway and Network Analysis workshop](https://baderlab.github.io/CBW_Pathways_2020/)
