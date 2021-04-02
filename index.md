@@ -24,7 +24,7 @@ The main purpose of pathway and network analysis is to understand what a list of
 
 
 ## 1. Laptop set-up instruction
-Install the latest version of GSEA (Gene Set Enrichment Analysis) and Cytoscape [Instructions](https://baderlab.github.io/CBW_Pathways_2020/welcome.html#pre-workshop)
+Install the latest version of GSEA (Gene Set Enrichment Analysis) [Instruction](https://www.gsea-msigdb.org/gsea/index.jsp) and Cytoscape [Instructions](https://baderlab.github.io/CBW_Pathways_2020/welcome.html#pre-workshop)
 
 ## 2. Reading materials and references
 * [Bioinformatics.ca Pathway and Network Analysis workshop](https://baderlab.github.io/CBW_Pathways_2020/)
@@ -62,7 +62,7 @@ e.g. differentially expressed (DE) genes and all the expressed genes; top screen
 * **Additional notes**:
 	*  The purpose is to guide future experiment and inform hypothesis, therefore the filtering strategy, ranking strategy and the number of genes to include may not matter as much.     
 	* For hypergeometric analysis, smaller gene sets and smaller input gene list may lead to only one or two genes in the list are in the pathway still showing statistical significance. This needs to be taken into consideration and and it is generally recommended to prioritize those enriched pathways/gene sets that have more genes from the foreground list.     
-	* It could be informative to visualize the genes in the enriched pathways because it is possible that those genes are all playing roles in a certain part of the large pathway.     
+	* It could be informative to visualize the genes in the enriched pathways because it is possible that those genes are all playing roles in a certain part of the large pathway, e.g. using GOrilla, ReactomeFI     
 	* Using ENSEMBL ID for query can be helpful because ENSEMBL IDs are unique. 
 	* For ranked list, it is generally recommended to perform GSEA.        
    
@@ -105,10 +105,10 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 
        
 * A pathway definition file (.gmt): 
-	* Can be downloaded from [http://baderlab.org/GeneSets](http://baderlab.org/GeneSets) and use the "current release". Recommended file: **Human_GOBP_All_Pathways_no_GO_iea_{Date}_{ID}.gmt** or **Mouse_GOBP_All_Pathways_no_GO_iea_{Date}_{ID}.gmt**. There are files for rats as well.
+	* Can be downloaded from [http://baderlab.org/GeneSets](http://baderlab.org/GeneSets) by clicking "http://download.baderlab.org/EM_Genesets/" and use the "current release". When the rnk file uses symbol, the gmt file in the "symbol/" folder should be used. Recommended file: **Human_GOBP_All_Pathways_no_GO_iea_{Date}_{ID}.gmt** or **Mouse_GOBP_All_Pathways_no_GO_iea_{Date}_{ID}.gmt**. There are files for rats as well. The recommended files contain only genesets from GO biological process excluding annotations that have evidence code IEA (inferred from electronic annotation), ND (no biological data available), and RCA (inferred from reviewed computational analysis) and all pathway resources. Notes: The "GO_All_Pathway" gmt files contain GOBC and GOMF and take a bit longer time for the analysis.
 	* gmt files can also be downloaded from gprofiler, but somehow the plots from GSEA analysis only show GO ID but not description, so not very convenient. 
 	* Can also just use the gmt files in the app from [Molecular Signatures Database (MSigDB)](http://www.gsea-msigdb.org/gsea/msigdb/collections.jsp), a collection of annotated gene sets for use with GSEA software. This can only be for human data (human gene symbol). One can use g:orth to convert mouse gene symbol in the rank file to human orthologs and provide the rnk file for GSEA analysis.
-* Number of permutation: always use 1000.
+* Number of permutation: use 1000 as suggested in the Nat Prot paper or 2000 as suggested in the workshop materials.
 * Name the analysis with the gene sets used, and the min and max cutoff.
 * Min = 15, max = 200 to include only smaller gene sets.
 * Enrichment statistics: The default is "weighted". Can also **set Enrichment Statistics to p2 if you want to add more weight on the most top up-regulated and top down-regulated.**. Can try P1.5 to see the difference in terms of enrichment plot.
@@ -120,10 +120,10 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 
 ## 4. Network Visualization and Analysis with Cytoscape - Enrichment Map
 #### Network Visualization and Analysis with Cytoscape: Enrichment Map from g:Profiler results.
-https://bioinformaticsdotca.github.io/Pathways_2019_Module3_Lab-EM_GProfiler    
+https://baderlab.github.io/CBW_Pathways_2020/gprofiler-mod3.html   
 
 #### Network Visualization and Analysis with Cytoscape: create an enrichment map from GSEA results.
-https://bioinformaticsdotca.github.io/Pathways_2019_Module3_Lab-EM_GSEA    
+https://baderlab.github.io/CBW_Pathways_2020/gsea-mod3.html   
 
 **Notes:**
 * Enrichment map documentation: [https://enrichmentmap.readthedocs.io/en/latest/](https://enrichmentmap.readthedocs.io/en/latest/)
