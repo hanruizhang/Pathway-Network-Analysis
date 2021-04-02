@@ -29,10 +29,13 @@ The main purpose of pathway and network analysis is to understand what a list of
 Follow the link to download and install the latest version of [GSEA](https://www.gsea-msigdb.org/gsea/index.jsp) (Gene Set Enrichment Analysis) and [Cytoscape](https://cytoscape.org/).      
 
 ## 2. Reading materials and references
-* [Bioinformatics.ca Pathway and Network Analysis workshop](https://baderlab.github.io/CBW_Pathways_2020/)
+To further understand the sources of pathway and network data, statistical approaches, and results interpretation.     
+
+* The materials for the [Bioinformatics.ca Pathway and Network Analysis workshop](https://baderlab.github.io/CBW_Pathways_2020/).     
 
 * Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap
-Reimand J, Isserlin R, Voisin V, Kucera M, Tannus-Lopes C, Rostamianfar A, Wadi L, Meyer M, Wong J, Xu C, Merico D, Bader GD. Nat Protoc. 2019 Feb;14(2):482-517. [PubMed Abstract](https://www.ncbi.nlm.nih.gov/pubmed/30664679). [Full-text can be downloaded here](http://baderlab.org/Publications#EM_2019).     
+Reimand J, Isserlin R, Voisin V, Kucera M, Tannus-Lopes C, Rostamianfar A, Wadi L, Meyer M, Wong J, Xu C, Merico D, Bader GD. Nat Protoc. 2019 Feb;14(2):482-517. [PubMed Abstract](https://www.ncbi.nlm.nih.gov/pubmed/30664679). [Full-text can be downloaded here](http://baderlab.org/Publications#EM_2019).  
+
 The protocol uses publicly available software packages (GSEA v.3.0 or higher, g:Profiler, Enrichment Map v.3.0 or higher, Cytoscape v.3.6.0 or higher) and custom R scripts that apply publicly available R packages (edgeR, Roast, Limma, Camera). Custom scripts are available in the Supplementary Protocols and at GitHub web sites [https://github.com/BaderLab/Cytoscape_workflows/tree/master/EnrichmentMapPipeline](https://github.com/BaderLab/Cytoscape_workflows/tree/master/EnrichmentMapPipeline) and [https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html](https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html).
 
 ## 3. Over-representation analysis and enrichment analysis
