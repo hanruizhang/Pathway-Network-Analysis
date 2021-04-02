@@ -5,35 +5,41 @@ output:
         toc: false
 ---
 
-[Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2021-02-13].    
+[Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2021-04-02].    
 
 The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on pathway and network analysis [2020](https://bioinformaticsdotca.github.io/Pathways_2020). 
 
 ## Summary of the Workflow
-1. **Process Data**: Derive a list of differentially expressed genes from RNA sequencing data. ([our workflow](https://hanruizhang.github.io/RNAseq-analysis-workflow/))
-2. **Identify Pathways**: Identify enriched pathways using over-representation analysis or Gene Set Enrichment Analysis.
-3. **Visualize**: Create an Enrichment Map displaying the landscape of pathways.
-4. **Build the network**: [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
-5. **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
-6. **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
+The main purpose of pathway and network analysis is to understand what a list of genes is telling us, i.e. gain mechanistic insights and interpret lists of interesting genes from experiments (usually omics and functional genomic experiments). 
+1. **Process Data**: Obtain a list of interesting genes
+	- A list of differentially expressed genes from RNA sequencing data. ([our workflow](https://hanruizhang.github.io/RNAseq-analysis-workflow/))
+	- Top CRISPR screen hits
+	- Candidate genes from rare variants and/or common variant association studies
+	- And many more...
+3. **Identify Pathways**: Identify enriched pathways using **over-representation analysis** or **Gene Set Enrichment Analysis**.
+4. **Visualize**: Create an Enrichment Map displaying the landscape of pathways.
+5. **Build the network**: [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
+6. **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
+7. **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 
 
 ## 1. Laptop set-up instruction
-[https://bioinformaticsdotca.github.io/Pathways_laptop_setup_instructions](https://bioinformaticsdotca.github.io/Pathways_laptop_setup_instructions)
+Install the latest version of GSEA (Gene Set Enrichment Analysis) and Cytoscape [Instructions](https://baderlab.github.io/CBW_Pathways_2020/welcome.html#pre-workshop)
 
 ## 2. Reading materials and references
-[https://bioinformaticsdotca.github.io/Pathways_2019_prework](https://bioinformaticsdotca.github.io/Pathways_2019_prework)
+* [Bioinformatics.ca Pathway and Network Analysis workshop](https://baderlab.github.io/CBW_Pathways_2020/)
 
-Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap
+* Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA, Cytoscape and EnrichmentMap
 Reimand J, Isserlin R, Voisin V, Kucera M, Tannus-Lopes C, Rostamianfar A, Wadi L, Meyer M, Wong J, Xu C, Merico D, Bader GD. Nat Protoc. 2019 Feb;14(2):482-517. [PubMed Abstract](https://www.ncbi.nlm.nih.gov/pubmed/30664679). [Full-text can be downloaded here](http://baderlab.org/Publications#EM_2019).     
 The protocol uses publicly available software packages (GSEA v.3.0 or higher, g:Profiler, Enrichment Map v.3.0 or higher, Cytoscape v.3.6.0 or higher) and custom R scripts that apply publicly available R packages (edgeR, Roast, Limma, Camera). Custom scripts are available in the Supplementary Protocols and at GitHub web sites [https://github.com/BaderLab/Cytoscape_workflows/tree/master/EnrichmentMapPipeline](https://github.com/BaderLab/Cytoscape_workflows/tree/master/EnrichmentMapPipeline) and [https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html](https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html).
 
 ## 3. Over-representation analysis and enrichment analysis
-### 3.1 [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) for over-representation analysis: Using two lists of genes as the inputs
+### 3.1 [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) for over-representation analysis: Using two lists of genes as the inputs, 
+e.g. differentially expressed (DE) genes and all the expressed genes; top screen hits and background genes; GWAS candidate genes and all the annotated genes. This workflow uses DE genes as examples.
 
 * **Select organism that matches input query gene list.**
 * **Foreground genes**: Should be the differentially expressed genes using different FC and FDR cutoff, e.g. Log2(FC)>1.0 & FDR<0.01. You may download the practice data in .txt file [here](/data/M0-HMDM_M1-HMDM_Increase_FDR0.01_FC2.0.txt). 
-	* The list include DE genes upregualted in human monocyte-derived macrophages (HMDM) stimualted with LPS+TFNg, i.e. M(LPS+IFNgamma), vs HMDM without stimulation (M0). The results are obtained by running the RNA-seq workflow also available on the lab web page [here](https://hanruizhang.github.io/RNAseq-analysis-workflow/).
+	* The list include DE genes upregualted in human monocyte-derived macrophages (HMDM) stimualted with LPS+IFNg, i.e. M(LPS+IFNgamma), vs HMDM without stimulation (M0). The results are obtained by running the RNA-seq workflow also available on the lab web page [here](https://hanruizhang.github.io/RNAseq-analysis-workflow/).
 	* It is recommended that for a list that can be ranked, e.g. a list of DE genes, the genes should be ranked and the box of **"Ordered query"** should be checked.
 	* The ranking can be based on the same methods for GSEA analysis as described below. 
 * **Background genes**: Can select the "Only annotated genes" upon clicking "Advanced Options". Or can use the "expressed" genes and you may download the practice data in .txt file [here](/data/M0-HMDM_Background.txt).
@@ -50,8 +56,14 @@ The protocol uses publicly available software packages (GSEA v.3.0 or higher, g:
 	* Adjust term size to exclude general terms: the default is 10,000 and it is generally good to change to 1,000. If there are still a lot of results can reduce further. This is because large pathways are of limited interpretative value, whereas numerous small pathways decrease the statistical power because of excessive multiple testing.
 		* **For enrichment map analysis, may try min = 3 and max = 250 to limit the results for more informative map.** 
 		* With the previous version of g:profiler you were able to specify the min and max geneset size.  We used to recommend min of 3 and max of 300.  Unfortunately with the latest release of g:profiler you are not able to filter prior to searching by these thresholds.  
-		* Keep a note for this filtering strategy, e.g. name the results folder including the min and max number.      
+		* Keep a note for this filtering strategy, e.g. name the results folder including the min and max number.     
+		
 * **Save the results**: The query URL results are not permenant. The GEM is the generic enrichment file and it is formatted in a way that Enrichment map Cytoscape app can recognize.  It is missing some of the info that is found in the csv but you can use it directly with the Cytoscape app.
+* **Additional notes**:
+	*  The purpose is to guide future experiment and inform hypothesis, therefore the filtering strategy, ranking strategy and the number of genes to include may not matter as much.     
+	* For hypergeometric analysis, smaller gene sets and smaller input gene list may lead to only one or two genes in the list are in the pathway still showing statistical significance. This needs to be taken into consideration and and it is generally recommended to prioritize those enriched pathways/gene sets that have more genes from the foreground list.     
+	* It could be informative to visualize the genes in the enriched pathways because it is possible that those genes are all playing roles in a certain part of the large pathway.     
+	* Using ENSEMBL ID for query can be helpful because ENSEMBL IDs are unique.     
    
 * [g:Convert](https://biit.cs.ut.ee/gprofiler/convert): 
 	* Target name space: 
