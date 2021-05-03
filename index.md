@@ -38,6 +38,8 @@ Reimand J, Isserlin R, Voisin V, Kucera M, Tannus-Lopes C, Rostamianfar A, Wadi 
 
 The protocol uses publicly available software packages (GSEA v.3.0 or higher, g:Profiler, Enrichment Map v.3.0 or higher, Cytoscape v.3.6.0 or higher) and custom R scripts that apply publicly available R packages (edgeR, Roast, Limma, Camera). Custom scripts are available in the Supplementary Protocols and at GitHub web sites [https://github.com/BaderLab/Cytoscape_workflows/tree/master/EnrichmentMapPipeline](https://github.com/BaderLab/Cytoscape_workflows/tree/master/EnrichmentMapPipeline) and [https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html](https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html).
 
+This video is also informative [https://www.youtube.com/watch?v=KY6SS4vRchY](https://www.youtube.com/watch?v=KY6SS4vRchY).      
+
 ## 3. Over-representation analysis and enrichment analysis
 ### 3.1 [g:Profiler](https://biit.cs.ut.ee/gprofiler/gost) for over-representation analysis: Using two lists of genes as the inputs, 
 e.g. differentially expressed (DE) genes and all the expressed genes; top screen hits and background genes; GWAS candidate genes and all the annotated genes. This workflow uses DE genes as examples.
