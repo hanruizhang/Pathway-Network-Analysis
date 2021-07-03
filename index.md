@@ -15,6 +15,7 @@ The main purpose of pathway and network analysis is to understand what a list of
 	- A list of differentially expressed genes from RNA sequencing data. ([our workflow](https://hanruizhang.github.io/RNAseq-analysis-workflow/))
 	- Top CRISPR screen hits
 	- Candidate genes from rare variants and/or common variant association studies
+	- Protein-protein interaction, miRNA targets, TF binding sites (ChIP-seq)
 	- And many more...
 - **Identify Pathways**: Identify enriched pathways using -
 	- **over-representation analysis** for two lists of foreground and background genes.
@@ -146,19 +147,7 @@ https://baderlab.github.io/CBW_Pathways_2020/gsea-mod3.html
 * Autoannotate cluster the network, find frequent works in node labeles for each cluster, and select the top 3 words to create labels. The lables can be moved or edited to make figure publication ready.
 * Do not scale font by cluster size. Size of clusters is not important. It just means that that feature happens to be well-annotated in the data. To simply the network is to collapse those clusters.    
 
-## 5. Other overrepresentation and/or enrichment analysis tools
-* Defined genes list for overrepresentation analysis:
-	* gProfiler: web-based, updated dataset, can test datasets combined, can use Cytoscape for visualization
-	* Panther: web-based, updated dataset, can test datasets individually (not combined), cannot use Cytoscape for visualization
-	* Cluego: app, updated dataset, can test datasets together, has own Cytoscape app
-	* BiNGO: app, dataset may not be the most up-to-date, can test datasets togehter, can use Cytoscape for visualization
-* Ranked list:
-	* gProfiler: Modified KS test, correction for multiple hypothesis testing, can use Cytoscape for visualization
-	* Panther: Wilcoxon Rank Sum test, correction for multiple hypothesis testing, cannot use Cytoscape for visualization.
-* Other [GO-endorsed enrichment analysis tools](http://geneontology.org/docs/go-enrichment-analysis/) include Panther, BiNGO, GOrilla etc. 
-
-
-## 6. Network Analysis by [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz)
+## 5. Network Analysis by [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz)
 Investigate and visualize functional interaction among genes in hit pathways.
 * Why networks: Reduce complexity, more efficient than tables, great for data integration, intuitive visualization.
 * Interaction network resource, e.g. [IMEx](https://www.imexconsortium.org/): 
@@ -224,7 +213,7 @@ Investigate and visualize functional interaction among genes in hit pathways.
 	* PARADIGM
 	* Cytoscape: Network Inference; Integrated Analysis; Systems Biology; Network dynamics
 
-## 7. Predict gene function: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
+## 6. Predict gene function: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
 * GeneMANIA is a functional interaction network. 
 * It is a collection of interaction entwrokds that are summed up into one global network. 
 * To integrate all these networks into one, there are some weights associated with each network that are context dependent. 
@@ -235,12 +224,32 @@ Investigate and visualize functional interaction among genes in hit pathways.
 * GeneMania is a gene function prediction tool answering two questions: (1) What does my gene do? (one gene as query); and (2) give me more genes like these (gene list as query).
 * From EnrichmentMap to GeneMANIA: Right click on pathway of interest, select "Apps" - "EnrichmentMap - Show in GeneMANIA". Then each node size and color refers to gene expression in the pathway of interest. 
 
+## 7. Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 
 ## 8. Additional information
+* Pathway databases: 
+	* Pathguide
+	* MSigDB
+	* Pathcommons
+* Sources of gene attributes
+	* ENSEMBL BioMart
+	* Entrez Gene
+	* Model organism databases, e.g. SGD 
+* Other overrepresentation and/or enrichment analysis tools
+	* Browse GO: QuickGO
+	* Defined genes list for overrepresentation analysis:
+		* gProfiler: web-based, updated dataset, can test datasets combined, can use Cytoscape for visualization
+		* Panther: web-based, updated dataset, can test datasets individually (not combined), cannot use Cytoscape for visualization
+		* Cluego: app, updated dataset, can test datasets together, has own Cytoscape app
+		* BiNGO: app, dataset may not be the most up-to-date, can test datasets togehter, can use Cytoscape for visualization
+	* Ranked list:
+		* gProfiler: Modified KS test, correction for multiple hypothesis testing, can use Cytoscape for visualization
+		* Panther: Wilcoxon Rank Sum test, correction for multiple hypothesis testing, cannot use Cytoscape for visualization.
+	* Other [GO-endorsed enrichment analysis tools](http://geneontology.org/docs/go-enrichment-analysis/) include Panther, BiNGO, GOrilla etc.
+
 * Other Bader lab Cytoscape workflows are available at [https://github.com/BaderLab/Cytoscape_workflows](https://github.com/BaderLab/Cytoscape_workflows)
 * Use [Biostars](https://www.biostars.org/) to post questions and search answers
-* This workflow does not cover the contents below, which can be found through workshop link above.
-	* **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
+	
 
 
 
