@@ -183,6 +183,42 @@ https://baderlab.github.io/CBW_Pathways_2020/gsea-mod3.html
 		* Facilitates hypothesis generation on roles of these genes in disease phenotype.    
 	* Network analysis reduces hundreds of mutated genes to < dozen mutated pathways.     
 * Functional interaction: Convert reactions in pathways into pair-wise relationships - an interaction in which two-proteins are involved in the same reaction as input, catalyst, activtor and/or inhibitor, or as components in a complex. 
+	* Construction of the FI Network: 436K interactions and 13K proteins
+	* Projecting experimental data onto FI network and remove the inrelevant proteins
+	* Reduce hundreds of genes down to a handful of pathways
+* Pathway modeling approaches
+	* Network based methods relate graph theory to discover and connect associations between nodes in the pathway, typical node and internodes interaction.    
+	* Mathematical modeling learns and analyzes the underlying network by transforming the reactions and entitites into matrix form.    
+	* Preserve detailed biological relationship.    
+	* Attempt to integrate multiple molecular alterations together to yield lists of altered pathway activities.    
+	* Pathway modeling shades into systems biology     
+* Types of Pathway-based modeling
+	* Partial differential equations/boolean models, e.g. CellNetAnalyzer
+		* Most suited for biochemical systems (metabolomics).    
+	* Network flow models, e.g. KinomeXplorer, NetPhorest, NetworKIN
+		* Mostly suited for kinase cascades (phosphorylation info)    
+	* Transcriptional regulatory network-based reconstruction methods, e.g. ARACNe (expression arrays)   
+	* Probabilistic graph models (PGMs), e.g. PARADIGM    
+		* Most general form of pathway modeling for cancer analysis at this time. 
+* Pathway/Network Database
+	* BioGRID
+	* IntAct
+	* KEGG
+	* MINT
+	* Reactome
+	* Pathway Commons
+	* WikiPathways
+* De novo network construction & clustering
+	* GeneMANIA
+	* HotNet
+	* HyperModules
+	* Reactome Cytoscape FI App
+* Pathway Modeling
+	* CellNetAnalyzer
+	* KinomeXplorer/NetPhorest/Networkin
+	* ARACNe
+	* PARADIGM
+	* Cytoscape: Network Inference; Integrated Analysis; Systems Biology; Network dynamics
 
 ## 7. Additional information
 * Other Bader lab Cytoscape workflows are available at [https://github.com/BaderLab/Cytoscape_workflows](https://github.com/BaderLab/Cytoscape_workflows)
