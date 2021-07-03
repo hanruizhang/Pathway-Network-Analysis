@@ -129,6 +129,7 @@ write.table(rnk, file="../output/DESeq2.rnk"), quote = FALSE, sep = "\t", row.na
 	* Enrichment map visualization directly from through GSEA app.
 
 ## 4. Network Visualization and Analysis with Cytoscape - Enrichment Map
+The objective is to transform enrichment results from g:profiler, gsea or other enrichment algorithms to a network, and summarize enrichment results with annotation using the Autoannotate App.
 #### Network Visualization and Analysis with Cytoscape: Enrichment Map from g:Profiler results.
 https://baderlab.github.io/CBW_Pathways_2020/gprofiler-mod3.html   
 
@@ -142,6 +143,8 @@ https://baderlab.github.io/CBW_Pathways_2020/gsea-mod3.html
 * Once the map is generated, we can further filter by FDR or Edge cutoff, which we would like to keep it low unless the data look like a hairball.
 * Enrichment map - Style - Chart data: Color by FDR or by datasets
 * Circle represents number of genes in each enriched pathway; edge represents the overlap of genes between pathway; color of the circle can be adjusted to represent Q value.
+* Autoannotate cluster the network, find frequent works in node labeles for each cluster, and select the top 3 words to create labels. The lables can be moved or edited to make figure publication ready.
+* Do not scale font by cluster size. Size of clusters is not important. It just means that that feature happens to be well-annotated in the data. To simply the network is to collapse those clusters.    
 
 ## 5. Other overrepresentation and/or enrichment analysis tools
 * Defined genes list for overrepresentation analysis:
@@ -153,10 +156,11 @@ https://baderlab.github.io/CBW_Pathways_2020/gsea-mod3.html
 	* gProfiler: Modified KS test, correction for multiple hypothesis testing, can use Cytoscape for visualization
 	* Panther: Wilcoxon Rank Sum test, correction for multiple hypothesis testing, cannot use Cytoscape for visualization.
 * Other [GO-endorsed enrichment analysis tools](http://geneontology.org/docs/go-enrichment-analysis/) include Panther, BiNGO, GOrilla etc. 
-* Pathwaycommons
 
-## 6. Network Analysis
-**Build the network** by [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
+
+## 6. Network Analysis by [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz)
+Investigate and visualize functional interaction among genes in hit pathways.
+* Why networks: Reduce complexity, more efficient than tables, great for data integration, intuitive visualization.
 * Interaction network resource, e.g. [IMEx](https://www.imexconsortium.org/): 
 	* Important to check the source and species of the data
 	* Curated interaction sources:
@@ -220,11 +224,22 @@ https://baderlab.github.io/CBW_Pathways_2020/gsea-mod3.html
 	* PARADIGM
 	* Cytoscape: Network Inference; Integrated Analysis; Systems Biology; Network dynamics
 
-## 7. Additional information
+## 7. Predict gene function: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
+* GeneMANIA is a functional interaction network. 
+* It is a collection of interaction entwrokds that are summed up into one global network. 
+* To integrate all these networks into one, there are some weights associated with each network that are context dependent. 
+	* Weight of different networks used to measure node connection:
+		* Network weighting = automatic - GO-based weighting assigns network weights based on how well the networks reproduce patterns of GO co-annotations ("Are genes that interact in the network more likely to have the same annotation?").
+		* Network weighting = equal by network
+* It is a guilt by association/label propagation algorithm which finds genes and networks that are functionally associated with our query gene list.
+* GeneMania is a gene function prediction tool answering two questions: (1) What does my gene do? (one gene as query); and (2) give me more genes like these (gene list as query).
+* From EnrichmentMap to GeneMANIA: Right click on pathway of interest, select "Apps" - "EnrichmentMap - Show in GeneMANIA". Then each node size and color refers to gene expression in the pathway of interest. 
+
+
+## 8. Additional information
 * Other Bader lab Cytoscape workflows are available at [https://github.com/BaderLab/Cytoscape_workflows](https://github.com/BaderLab/Cytoscape_workflows)
 * Use [Biostars](https://www.biostars.org/) to post questions and search answers
 * This workflow does not cover the contents below, which can be found through workshop link above.
-	* **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
 	* **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 
 
