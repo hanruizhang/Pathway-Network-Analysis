@@ -5,9 +5,9 @@ output:
         toc: false
 ---
 
-[Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2021-04-02].    
+[Zhanglab@Columbia](https://hanruizhang.github.io/zhanglab/) by [Hanrui Zhang](https://github.com/hanruizhang) [2019-07-01], updated on [2021-07-02].    
 
-The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on pathway and network analysis [2020](https://bioinformaticsdotca.github.io/Pathways_2020). 
+The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop on pathway and network analysis 2021. 
 
 ## Summary of the Workflow
 The main purpose of pathway and network analysis is to understand what a list of genes is telling us, i.e. gain mechanistic insights and interpret lists of interesting genes from experiments (usually omics and functional genomic experiments). 
