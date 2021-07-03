@@ -84,9 +84,9 @@ Statistical test: Fisher's Exact Test (aka hypergeometric test).
 * [g:Orth](https://biit.cs.ut.ee/gprofiler/orth): Convert mouse and human ortholog
 * [g:SNPense](https://biit.cs.ut.ee/gprofiler/snpense): Map human SNPs to genes
 
-### 3.2 [GSEA](http://software.broadinstitute.org/gsea/index.jsp): Use all genes with fold change and p-value (recommended)
-Answers the question: Are any pathways (gene sets) ranked surprisingly high or low in ,y ranked list of genes?     
-Statistical test: GSEA, Wilcoxon rank sum test etc.
+### 3.2 [GSEA](http://software.broadinstitute.org/gsea/index.jsp): Use all genes with fold change and p-value (recommended to avoid applying artificial threshold)
+Answers the question: Are any pathways (gene sets) ranked surprisingly high or low in a ranked list of genes? e.g. Individual genes in a pathway may be only up- or down-regulated by a small amount but the addition of all these subtle changes may have a great impact on the pathway.    
+Statistical test: GSEA (modified KS test), Wilcoxon rank sum test etc.
 
 * Download the GSEA desktop app by clicking [here](http://software.broadinstitute.org/gsea/index.jsp) and then "Download". Login with your email and choose the Mac vs Windows version appropriate.
 * GSEA analysis needs two files
