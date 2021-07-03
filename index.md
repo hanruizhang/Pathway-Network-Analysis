@@ -11,18 +11,18 @@ The material is modified from the [CBW](https://www.bioinformatics.ca/) workshop
 
 ## Summary of the Workflow
 The main purpose of pathway and network analysis is to understand what a list of genes is telling us, i.e. gain mechanistic insights and interpret lists of interesting genes from experiments (usually omics and functional genomic experiments). 
-1. **Process Data**: Obtain a list of interesting genes
+- **Process Data**: Obtain a list of interesting genes
 	- A list of differentially expressed genes from RNA sequencing data. ([our workflow](https://hanruizhang.github.io/RNAseq-analysis-workflow/))
 	- Top CRISPR screen hits
 	- Candidate genes from rare variants and/or common variant association studies
 	- And many more...
-3. **Identify Pathways**: Identify enriched pathways using -
+- **Identify Pathways**: Identify enriched pathways using -
 	- **over-representation analysis** for two lists of foreground and background genes.
 	-  or **Gene Set Enrichment Analysis** for a ranked gene list
-5. **Visualize**: Create an Enrichment Map displaying the landscape of pathways.
-6. **Build the network**: [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
-7. **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
-8. **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
+- **Visualize**: Create an Enrichment Map displaying the landscape of pathways.
+- **Build the network**: [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
+- **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
+- **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 
 
 ## 1. Laptop set-up instruction
@@ -153,12 +153,41 @@ https://baderlab.github.io/CBW_Pathways_2020/gsea-mod3.html
 	* gProfiler: Modified KS test, correction for multiple hypothesis testing, can use Cytoscape for visualization
 	* Panther: Wilcoxon Rank Sum test, correction for multiple hypothesis testing, cannot use Cytoscape for visualization.
 * Other [GO-endorsed enrichment analysis tools](http://geneontology.org/docs/go-enrichment-analysis/) include Panther, BiNGO, GOrilla etc. 
+* Pathwaycommons
 
-## 6. Additional information
+## 6. Network Analysis
+**Build the network** by [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
+* Interaction network resource, e.g. [IMEx](https://www.imexconsortium.org/): 
+	* Important to check the source and species of the data
+	* Curated interaction sources:
+		* Yeast 2 hybrid protein interactions
+		* Protein complex pulldowns/mass spec
+		* Genetic screens, such as synthetic lethals, enhancer/suppressor screens
+		* NOT perfect:
+			* Y2H interactions have taken proteins out of natural context; physical interaction = biological interactions!
+			* Protein complex pulldowns plaqued by "sticky" proteins such as actin
+			* Genetic screens highly sensitie to genetic background ("network effects")
+		* Computationally extract gene relationships from text, such as PubMed abstracts or PMC full text.
+	* IntAct has more human data focuses
+* Steps in Network Visualization and Analysis
+	1. Need a software to create the network.    
+	2. Upload our data (usually table format) to create the network.    
+	3. Navigate through the created network.    
+	4. Analyze the network (e.g. do you see clusters?).    
+	5. Label the clusters (with pathway or GO annotations).    
+	6. Export network (table) and network image.  
+* Software tools: e.g. Reactome Functional Interaction (FI) Network and ReactomeFIViz App
+	* Analyzing mutated genes in a network context:
+		* Reveals relationships among these genes.    
+		* Can elucidate mechanism of action of drivers.    
+		* Facilitates hypothesis generation on roles of these genes in disease phenotype.    
+	* Network analysis reduces hundreds of mutated genes to < dozen mutated pathways.     
+* Functional interaction: Convert reactions in pathways into pair-wise relationships - an interaction in which two-proteins are involved in the same reaction as input, catalyst, activtor and/or inhibitor, or as components in a complex. 
+
+## 7. Additional information
 * Other Bader lab Cytoscape workflows are available at [https://github.com/BaderLab/Cytoscape_workflows](https://github.com/BaderLab/Cytoscape_workflows)
 * Use [Biostars](https://www.biostars.org/) to post questions and search answers
 * This workflow does not cover the contents below, which can be found through workshop link above.
-	* **Build the network** by [ReactomeFI](https://reactome.org/tools/reactome-fiviz#Download_and_Launch_ReactomeFIViz) - investigate and visualize functional interaction among genes in hit pathways.
 	* **Predict gene function**: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
 	* **Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 
