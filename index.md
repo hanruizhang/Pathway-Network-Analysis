@@ -46,7 +46,11 @@ This video is also informative [https://www.youtube.com/watch?v=KY6SS4vRchY](htt
 e.g. differentially expressed (DE) genes and all the expressed genes; top screen hits and background genes; GWAS candidate genes and all the annotated genes. This workflow uses DE genes as examples.    
 
 Answers the question: Are any pathways (gene sets) surprisingly enriched in my gene list?     
-Statistical test: Fisher's Exact Test (aka hypergeometric test).      
+Statistical test: Fisher's Exact Test (aka hypergeometric test).   
+
+<div> 
+  <img src="{{ '/figure/Fishers_Exact_Test.png' | absolute_url }}" alt="Fishers_Exact_Test" width="480">
+</div>
 
 * **Select organism that matches input query gene list.**
 * **Foreground genes**: Should be the differentially expressed genes using different FC and FDR cutoff, e.g. Log2(FC)>1.0 & FDR<0.01. You may download the practice data in .txt file [here](/data/M0-HMDM_M1-HMDM_Increase_FDR0.01_FC2.0.txt). 
