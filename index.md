@@ -234,7 +234,7 @@ Investigate and visualize functional interaction among genes in hit pathways.
 * GeneMania is a gene function prediction tool answering two questions: (1) What does my gene do? (one gene as query); and (2) give me more genes like these (gene list as query).
 * From EnrichmentMap to GeneMANIA: Right click on pathway of interest, select "Apps" - "EnrichmentMap - Show in GeneMANIA". Then each node size and color refers to gene expression in the pathway of interest. 
 
-## 7. Discover the Regulons**: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
+## 7. Discover the Regulons: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 * iRegulon can answer two questions:
 	* Find the targets of a transcription factor of interest: targets are displayed as a network, we can overlay extra information of the created network like node colors.    
 	* Given a set of genes, found if these genes are co-regulated by some transcription factors listed in teh iRegulon database.
