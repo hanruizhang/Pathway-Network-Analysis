@@ -240,9 +240,25 @@ One may refer to the [GeneMANIA help page](http://pages.genemania.org/help/#gene
 
 
 ## 7. Discover the Regulons: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
+
+* What we have learned:
+	* PWMs can accurately reflect in vitro binding properties of DNA-binding proteins.
+	* Suitable binding sites occur at a rate far too frequent to reflect in vivo function
+	* In vivo presence of a DNA-binding protein often occurs without a strong motif
+	* Bioinformatics methods that use PWMs for binding site studies must incorporate additional information to enhance specificity. i.e. unfiltered predictions are too noisy for most applications.
+e.g. ChIP-seq, conservation, structural constraints on TFs, 3D genome organization.
+	* Challenges ahead include: Understanding all TFs across a developing organism; Genetic variation in TFBS; Integration of context and more complex predictive models; Transition from matrices to hidden Markov models or energy models
+
+* Tools incorporating information about the biochemistry of gene regulation
+	* [Segway](https://pmgenomics.ca/hoffmanlab/proj/segway/): semi-automated genome annotation
+	* [TFBShape](https://tfbsshape.usc.edu/): DNA shape features at TFBS
+
 * iRegulon can answer two questions:
 	* Find the targets of a transcription factor of interest: targets are displayed as a network, we can overlay extra information of the created network like node colors.    
 	* Given a set of genes, found if these genes are co-regulated by some transcription factors listed in teh iRegulon database.
+
+* Other tools:
+	* [TOMTOM](https://meme-suite.org/meme/index.html) compares the query motif against all motifs in databases of known motifs (such as JASPAR, an open-access database of TF binding profiles) and reports all statistically significant matches.
 
 ## 8. Additional information
 * Pathway databases: 
