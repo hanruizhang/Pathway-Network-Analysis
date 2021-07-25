@@ -224,15 +224,20 @@ Investigate and visualize functional interaction among genes in hit pathways.
 	* Cytoscape: Network Inference; Integrated Analysis; Systems Biology; Network dynamics
 
 ## 6. Predict gene function: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
+One may refer to the [GeneMANIA help page](http://pages.genemania.org/help/#genemania-network-categories) to find information about, e.g. network categories, search tips, etc.
 * GeneMANIA is a functional interaction network. 
 * It is a collection of interaction networks that are summed up into one global network. 
 * To integrate all these networks into one, there are some weights associated with each network that are context dependent. 
 	* Weight of different networks used to measure node connection:
-		* Network weighting = automatic - GO-based weighting assigns network weights based on how well the networks reproduce patterns of GO co-annotations ("Are genes that interact in the network more likely to have the same annotation?").
-		* Network weighting = equal by network
+		* Network weighting = automatic (pathways): GO-based weighting assigns network weights based on how well the networks reproduce patterns of GO co-annotations ("Are genes that interact in the network more likely to have the same annotation?").
+		* Network weighting = equal by network: all networks will be considered equally.
 * It is a guilt by association/label propagation algorithm which finds genes and networks that are functionally associated with our query gene list.
-* GeneMania is a gene function prediction tool answering two questions: (1) What does my gene do? (one gene as query); and (2) give me more genes like these (gene list as query).
-* From EnrichmentMap to GeneMANIA: Right click on pathway of interest, select "Apps" - "EnrichmentMap - Show in GeneMANIA". Then each node size and color refers to gene expression in the pathway of interest. 
+* GeneMania is a gene function prediction tool answering two questions: 
+	* (1) What does my gene do? (one gene as query); and 
+	* (2) give me more genes like these (gene list as query).
+* For one or few genes, using the webpage; for a larger list, e.g. 20-40 genes showing mutations in certain diseases, use the Cytoscape app is better.
+* From EnrichmentMap to GeneMANIA: Right click on pathway of interest, select "Apps" - "EnrichmentMap - Show in GeneMANIA". Then each node size and color refers to gene expression in the pathway of interest. This helps to better understand the genes in a pathway of interest.
+
 
 ## 7. Discover the Regulons: [iRegulon](http://iregulon.aertslab.org/) - sequence based discovery of the TF, the targets and the motifs/tracks from a set of genes.
 * iRegulon can answer two questions:
