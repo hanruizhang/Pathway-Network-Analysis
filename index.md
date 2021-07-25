@@ -225,7 +225,7 @@ Investigate and visualize functional interaction among genes in hit pathways.
 
 ## 6. Predict gene function: [GeneMANIA](https://genemania.org/) - predict the function of a gene or gene set.
 * GeneMANIA is a functional interaction network. 
-* It is a collection of interaction entwrokds that are summed up into one global network. 
+* It is a collection of interaction networks that are summed up into one global network. 
 * To integrate all these networks into one, there are some weights associated with each network that are context dependent. 
 	* Weight of different networks used to measure node connection:
 		* Network weighting = automatic - GO-based weighting assigns network weights based on how well the networks reproduce patterns of GO co-annotations ("Are genes that interact in the network more likely to have the same annotation?").
